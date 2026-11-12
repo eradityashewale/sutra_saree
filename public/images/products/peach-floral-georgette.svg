@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8936B"/><stop offset="1" stop-color="#F6D3B8"/></linearGradient>
+<linearGradient id="f" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".45" stop-color="#fff" stop-opacity=".14"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+<pattern id="b" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M35 23l9 12-9 12-9-12z" fill="#C9A24B" opacity=".6"/></pattern>
+</defs>
+<rect width="800" height="1000" fill="url(#g)"/>
+<rect width="800" height="850" fill="url(#b)"/>
+<polygon points="0,1000 0,850 0,850 20,820 40,850 60,820 80,850 100,820 120,850 140,820 160,850 180,820 200,850 220,820 240,850 260,820 280,850 300,820 320,850 340,820 360,850 380,820 400,850 420,820 440,850 460,820 480,850 500,820 520,850 540,820 560,850 580,820 600,850 620,820 640,850 660,820 680,850 700,820 720,850 740,820 760,850 780,820 800,850 820,820 800,850 800,1000" fill="#C9A24B"/>
+<rect y="904" width="800" height="10" fill="#E8936B" opacity=".8"/>
+<rect y="940" width="800" height="4" fill="#E8936B" opacity=".8"/>
+<rect x="0" y="0" width="133.33333333333334" height="1000" fill="url(#f)"/><rect x="133.33333333333334" y="0" width="133.33333333333334" height="1000" fill="url(#f)"/><rect x="266.6666666666667" y="0" width="133.33333333333334" height="1000" fill="url(#f)"/><rect x="400" y="0" width="133.33333333333334" height="1000" fill="url(#f)"/><rect x="533.3333333333334" y="0" width="133.33333333333334" height="1000" fill="url(#f)"/><rect x="666.6666666666666" y="0" width="133.33333333333334" height="1000" fill="url(#f)"/>
+<g font-family="Georgia, serif" text-anchor="middle" fill="#fff">
+<text x="400" y="440" font-size="50" opacity=".95">Peach Floral Georgette</text>
+<text x="400" y="497.14285714285717" font-size="26.666666666666668" opacity=".75" font-family="Arial, sans-serif" letter-spacing="3">REPLACE WITH PRODUCT PHOTO</text>
+</g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 960" width="540" height="960">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B3263F"/><stop offset="1" stop-color="#6B1023"/></linearGradient>
+<linearGradient id="f" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".45" stop-color="#fff" stop-opacity=".14"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+<pattern id="b" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M35 23l9 12-9 12-9-12z" fill="#C9A24B" opacity=".6"/></pattern>
+</defs>
+<rect width="540" height="960" fill="url(#g)"/>
+<rect width="540" height="810" fill="url(#b)"/>
+<polygon points="0,960 0,810 0,810 20,780 40,810 60,780 80,810 100,780 120,810 140,780 160,810 180,780 200,810 220,780 240,810 260,780 280,810 300,780 320,810 340,780 360,810 380,780 400,810 420,780 440,810 460,780 480,810 500,780 520,810 540,780 560,810 580,780 540,810 540,960" fill="#C9A24B"/>
+<rect y="864" width="540" height="10" fill="#B3263F" opacity=".8"/>
+<rect y="900" width="540" height="4" fill="#B3263F" opacity=".8"/>
+<rect x="0" y="0" width="90" height="960" fill="url(#f)"/><rect x="90" y="0" width="90" height="960" fill="url(#f)"/><rect x="180" y="0" width="90" height="960" fill="url(#f)"/><rect x="270" y="0" width="90" height="960" fill="url(#f)"/><rect x="360" y="0" width="90" height="960" fill="url(#f)"/><rect x="450" y="0" width="90" height="960" fill="url(#f)"/>
+<g font-family="Georgia, serif" text-anchor="middle" fill="#fff">
+<text x="270" y="422.4" font-size="33.75" opacity=".95">Reel 1</text>
+<text x="270" y="460.97142857142853" font-size="18" opacity=".75" font-family="Arial, sans-serif" letter-spacing="3">REPLACE WITH REEL COVER</text>
+</g>
+</svg>

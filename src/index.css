@@ -1,0 +1,302 @@
+@import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
+
+/* ─── BRAND TOKENS: change colours and fonts here ─────────────── */
+@theme {
+  --color-maroon: #5b0f1f;
+  --color-emerald: #0f4c3a;
+  --color-gold: #c9a24b;
+  --color-ivory: #fbf6ec;
+  --color-charcoal: #161616;
+  --color-wa: #128c4a; /* WhatsApp green, darkened for AA contrast with white text */
+
+  --font-display: 'Bodoni Moda', 'Playfair Display', 'Times New Roman', serif;
+  --font-kinetic: 'Clash Display', 'Cabinet Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-deva: 'Eczar', 'Noto Serif Devanagari', serif;
+
+  --radius-card: 24px;
+  --ease-silk: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 72px;
+}
+body {
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection {
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+}
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+
+/* ─── Glass panels ────────────────────────────────────────────── */
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 12px 32px rgba(0, 0, 0, 0.18);
+}
+.glass-dark {
+  background: linear-gradient(135deg, rgba(22, 22, 22, 0.62), rgba(22, 22, 22, 0.44));
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 12px 32px rgba(0, 0, 0, 0.25);
+}
+.shadow-soft {
+  box-shadow:
+    0 1px 2px rgba(91, 15, 31, 0.06),
+    0 18px 40px -18px rgba(91, 15, 31, 0.28);
+}
+
+/* ─── Kinetic headline: letters rise in one by one ────────────── */
+.k-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.k-letter {
+  display: inline-block;
+  transform: translateY(115%) rotate(8deg);
+  opacity: 0;
+  animation: k-rise 0.95s var(--ease-silk) forwards;
+  animation-delay: calc(var(--i) * 42ms + 650ms);
+}
+@keyframes k-rise {
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fade-up 0.9s var(--ease-silk) forwards;
+  animation-delay: var(--d, 1.4s);
+}
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ─── Scroll reveal + variable-font weight animation ──────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s var(--ease-silk),
+    transform 0.9s var(--ease-silk);
+  transition-delay: var(--d, 0s);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+.vf {
+  font-weight: 400;
+  transition: font-weight 1.1s var(--ease-silk);
+}
+.in .vf,
+.vf.in {
+  font-weight: 700;
+}
+@media (hover: hover) {
+  .vf:hover {
+    font-weight: 900;
+    transition-duration: 0.35s;
+  }
+}
+
+/* ─── 3D tilt cards ───────────────────────────────────────────── */
+.tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.6s var(--ease-silk);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.tilt.is-active {
+  transition-duration: 0.1s;
+}
+.tilt .tilt-img {
+  transform: translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.08);
+  transition: transform 0.6s var(--ease-silk);
+}
+.tilt.is-active .tilt-img {
+  transition-duration: 0.1s;
+}
+.tilt .tilt-shine {
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 0%),
+    rgba(255, 255, 255, 0.35),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.tilt.is-active .tilt-shine {
+  opacity: 1;
+}
+
+/* ─── 2.5D silk backdrop (first paint + low-end fallback) ─────── */
+.silk-backdrop {
+  background:
+    radial-gradient(120% 90% at 78% 30%, var(--silk-b) 0%, transparent 55%),
+    radial-gradient(90% 80% at 60% 80%, var(--silk-a) 0%, transparent 70%), #161616;
+  transition: --silk-a 1.2s, --silk-b 1.2s;
+}
+@property --silk-a {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #5b0f1f;
+}
+@property --silk-b {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #a3243c;
+}
+.silk-fold {
+  position: absolute;
+  inset: -30% -20%;
+  background: repeating-linear-gradient(
+    112deg,
+    transparent 0 7%,
+    rgba(255, 255, 255, 0.1) 10%,
+    transparent 14%,
+    rgba(0, 0, 0, 0.22) 19%,
+    transparent 24%
+  );
+  filter: blur(22px);
+  transform: translate3d(calc(var(--mx, 0) * var(--depth, 10px)), calc(var(--my, 0) * var(--depth, 10px)), 0);
+  animation: silk-drift 16s ease-in-out infinite alternate;
+}
+.silk-fold:nth-child(2) {
+  --depth: 26px;
+  animation-duration: 22s;
+  animation-direction: alternate-reverse;
+  opacity: 0.7;
+  background-size: 140% 140%;
+}
+.silk-zari {
+  position: absolute;
+  right: -10%;
+  top: 8%;
+  width: 70%;
+  height: 16px;
+  transform: rotate(-22deg) translate3d(calc(var(--mx, 0) * 40px), calc(var(--my, 0) * 40px), 0);
+  background: repeating-linear-gradient(90deg, #c9a24b 0 14px, #8a6a25 14px 18px);
+  box-shadow: 0 46px 0 -5px #c9a24b, 0 0 40px rgba(201, 162, 75, 0.5);
+  opacity: 0.85;
+}
+@keyframes silk-drift {
+  from {
+    background-position: 0% 0%;
+    translate: -3% 0;
+  }
+  to {
+    background-position: 30% 20%;
+    translate: 3% 2%;
+  }
+}
+.tier-static .silk-fold {
+  animation: none;
+}
+
+/* ─── Misc ────────────────────────────────────────────────────── */
+.wa-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--color-wa);
+  animation: wa-pulse 2.4s ease-out infinite;
+  z-index: -1;
+}
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+.kenburns {
+  animation: kenburns 14s ease-in-out infinite alternate;
+}
+@keyframes kenburns {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.14) translateY(-2%);
+  }
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.loader {
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.loader.done {
+  transform: translateY(-101%);
+}
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-plus {
+  transform: rotate(45deg);
+}
+
+/* ─── Respect reduced motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .tilt,
+  .tilt .tilt-img {
+    transform: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
