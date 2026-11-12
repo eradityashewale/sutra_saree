@@ -42,3 +42,5 @@ desktop.ini
 .cache/
 .eslintcache
 coverage/
+
+.vercel

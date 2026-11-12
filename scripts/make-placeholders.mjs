@@ -1,5 +1,6 @@
 // Generates the placeholder artwork in /public (product images, reel posters,
-// Instagram tiles, founder photo, favicon, share image).
+// Instagram tiles, founder photo, share image). The logo and favicon
+// (public/logo.svg, public/logo-mark.svg, public/favicon.svg) are hand-made, not generated.
 // Run:  npm run placeholders
 // You only need this until you drop in your real photos.
 import fs from 'node:fs'
@@ -55,10 +56,6 @@ for (const p of products) {
 })
 write('/images/founder.svg', drape({ a: '#0F4C3A', b: '#5B0F1F', w: 800, h: 1000, label: 'Founder photo', sub: 'REPLACE WITH YOUR PHOTO' }))
 
-write(
-  '/favicon.svg',
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#5B0F1F"/><path d="M32 12l14 20-14 20-14-20z" fill="none" stroke="${GOLD}" stroke-width="3"/><path d="M32 23l6 9-6 9-6-9z" fill="${GOLD}"/></svg>`,
-)
 
 // Share image (Open Graph needs PNG/JPG). Needs rsvg-convert; otherwise replace public/og-image.png by hand.
 const og = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">

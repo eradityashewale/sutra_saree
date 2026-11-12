@@ -16,7 +16,10 @@ export function Loader() {
   if (gone) return null
   return (
     <div aria-hidden="true" className={`loader fixed inset-0 z-[100] grid place-items-center bg-maroon ${done ? 'done' : ''}`}>
-      <p className="font-display text-3xl italic text-gold">{site.brand}</p>
+      <div className="flex flex-col items-center gap-4">
+        <img src="/logo-mark.svg" alt="" width="72" height="72" className="h-18 w-18 rounded-2xl ring-1 ring-gold/40" />
+        <p className="font-display text-3xl italic text-gold">{site.brand}</p>
+      </div>
     </div>
   )
 }

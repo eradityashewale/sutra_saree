@@ -4,7 +4,7 @@
 //  sitemap) reads from this file.
 // ─────────────────────────────────────────────────────────────
 export default {
-  brand: '[BRAND NAME]',
+  brand: 'Sutra Sarees',
   // Hero headline: each array item is one line.
   headline: ['Six yards', 'of heirloom.'],
   eyebrow: 'Handpicked sarees · Ships across India',

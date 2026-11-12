@@ -31,7 +31,7 @@ Needs Node 20 or newer.
 
 Open `site.config.js`. Replace:
 
-- `brand: '[BRAND NAME]'`
+- `brand: 'Sutra Sarees'` (already set)
 - `phone: '910000000000'` → `91` + your 10-digit WhatsApp Business number, digits only
 - `instagram: 'instagram_handle'` → your handle without the `@`
 - `url` → your live domain (used in the product links inside WhatsApp messages, the share preview and the sitemap)
@@ -70,7 +70,10 @@ Put photos in `public/images/products/` and point `image` at them. Recommended: 
 about 1000 × 1250 px, under 150 KB each. The "REPLACE WITH PRODUCT PHOTO" images are
 generated placeholders (`npm run placeholders` regenerates them).
 
-Also replace: `public/favicon.svg` (logo), `public/og-image.png` (1200 × 630 share preview),
+The logo lives in `public/logo.svg` (full lockup), `public/logo-mark.svg` (icon, used in the nav and loader)
+and `public/favicon.svg` (a copy of the icon).
+
+Also replace: `public/og-image.png` (1200 × 630 share preview),
 `public/images/founder.svg`, `public/images/reels/*`, `public/images/instagram/*`.
 
 For looping reels, drop MP4s into `public/videos/` and set `video: '/videos/reel-1.mp4'` in `src/data/content.js`.

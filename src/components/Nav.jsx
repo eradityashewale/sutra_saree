@@ -31,8 +31,9 @@ export default function Nav() {
           scrolled || menu ? 'glass-dark' : 'border border-transparent'
         }`}
       >
-        <a href="#top" className="font-display mr-auto truncate text-lg font-semibold tracking-tight sm:text-xl" aria-label={`${site.brand} home`}>
-          {site.brand}
+        <a href="#top" className="mr-auto flex min-w-0 items-center gap-2.5" aria-label={`${site.brand} home`}>
+          <img src="/logo-mark.svg" alt="" width="36" height="36" className="h-9 w-9 shrink-0 rounded-xl ring-1 ring-gold/40" />
+          <span className="font-display truncate text-lg font-semibold tracking-tight sm:text-xl">{site.brand}</span>
         </a>
         <ul className="hidden items-center gap-7 text-sm font-medium md:flex">
           {links.map((l) => (
